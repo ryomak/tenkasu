@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/ryomak/tenkasu/src/broker_control/binance"
+	"github.com/ryomak/tenkasu/src/broker_control/bitflyer"
 )
 
 func GetAccount() {
@@ -12,4 +13,9 @@ func GetAccount() {
 		panic(err)
 	}
 	fmt.Println(a)
+	b, err := bitflyer.GetBalance()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(b)
 }

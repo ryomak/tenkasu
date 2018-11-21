@@ -14,7 +14,7 @@ var (
 func init() {
 	flag.Parse()
 	conf.LoadConfig(*configPath)
-	broker.InitBroker()
+	broker.Init()
 }
 
 func main() {

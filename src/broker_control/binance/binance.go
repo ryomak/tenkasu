@@ -9,7 +9,7 @@ import (
 
 var client_ *b.Client
 
-func Init(broker *conf.Broker) {
+func Init(broker conf.Broker) {
 	client_ = b.NewClient(broker.APIKey, broker.SecretKey)
 }
 
