@@ -1,11 +1,12 @@
 package broker
 
 import (
+	"fmt"
+
 	"github.com/ryomak/tenkasu/src/broker_control/binance"
 )
 
 func GetAccount() {
-	binance.PriceSymbol()
 	/*a, err := binance.GetAccount()
 	if err != nil {
 		panic(err)
@@ -17,4 +18,10 @@ func GetAccount() {
 	}
 	fmt.Println(b)
 	*/
+}
+
+func GetRoute() {
+	for _, v := range binance.SearchRoute() {
+		fmt.Printf("%+v\n", v)
+	}
 }

@@ -1,5 +1,5 @@
 run:
 	go run src/cmd/main.go
 
-tool:
+CheckCoin:
 	go run src/broker_control/binance/tool/makeConb.go

@@ -18,5 +18,5 @@ func init() {
 }
 
 func main() {
-	broker.GetAccount()
+	broker.GetRoute()
 }
