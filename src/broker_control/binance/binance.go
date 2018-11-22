@@ -16,3 +16,17 @@ func Init(broker conf.Broker) {
 func GetAccount() (*b.Account, error) {
 	return client_.NewGetAccountService().Do(context.Background())
 }
+
+func PriceSymbol(names ...string) ([]b.SymbolPrice, error) {
+	prices, err := client_.NewListPricesService().Do(context.Background())
+	if err != nil {
+		return nil, err
+	}
+	res := make([]b.SymbolPrice, len(names))
+	for _, p := range prices {
+		if contains(p, names) {
+			res = append(res, *p)
+		}
+	}
+	return res, nil
+}

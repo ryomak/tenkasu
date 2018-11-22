@@ -1,14 +1,12 @@
 package broker
 
 import (
-	"fmt"
-
 	"github.com/ryomak/tenkasu/src/broker_control/binance"
-	"github.com/ryomak/tenkasu/src/broker_control/bitflyer"
 )
 
 func GetAccount() {
-	a, err := binance.GetAccount()
+	binance.PriceSymbol()
+	/*a, err := binance.GetAccount()
 	if err != nil {
 		panic(err)
 	}
@@ -18,4 +16,5 @@ func GetAccount() {
 		panic(err)
 	}
 	fmt.Println(b)
+	*/
 }
