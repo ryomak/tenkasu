@@ -21,8 +21,33 @@ func pairContains(c1, c2 string, names []string) bool {
 	return false
 }
 
-var BaseCoins = []string{"BTC", "ETH", "USDT", "BNB"}
+//for arbitage
+func makePairMap() {
+	pairmap = map[string]bool{}
+	for _, p := range Pair {
+		pairmap[p] = true
+	}
+}
 
-var Pair = []string{"ETH/BTC", "LTC/BTC", "BNB/BTC", "NEO/BTC", "EOS/ETH", "BNB/ETH", "BTC/USDT", "ETH/USDT", "DNT/ETH", "NEO/ETH", "IOTA/BTC", "IOTA/ETH", "EOS/BTC", "ETC/ETH", "ETC/BTC", "DNT/BTC", "REQ/BTC", "REQ/ETH", "XRP/BTC", "XRP/ETH", "ENJ/BTC", "ENJ/ETH", "STORJ/BTC", "STORJ/ETH", "BNB/USDT", "NEO/USDT", "NEO/BNB", "IOTA/BNB", "LEND/BTC", "LEND/ETH", "LTC/ETH", "LTC/USDT", "LTC/BNB", "RLC/BTC", "RLC/ETH", "RLC/BNB", "XEM/BTC", "XEM/ETH", "XEM/BNB", "CLOAK/BTC", "CLOAK/ETH", "LOOM/BTC", "LOOM/ETH", "LOOM/BNB", "XRP/USDT", "TUSD/BTC", "TUSD/ETH", "TUSD/BNB", "EOS/USDT", "EOS/BNB", "XRP/BNB", "TUSD/USDT", "IOTA/USDT", "IOTX/BTC", "IOTX/ETH", "ENJ/BNB", "ETC/USDT", "ETC/BNB", "KEY/BTC", "KEY/ETH", "DENT/BTC", "DENT/ETH"}
+func GetBalance(c ...string) map[string]Balance {
+	res := map[string]Balance{}
+	for _, v := range userData.Balances {
+		if contains(v.Name, c) {
+			res[v.Name] = v
+		}
+	}
+	return map[string]Balance{}
+}
 
-var Coins = []string{"BNB", "BTC", "CLOAK", "DENT", "DNT", "ENJ", "EOS", "ETC", "ETH", "IOTA", "IOTX", "KEY", "LEND", "LOOM", "LTC", "NEO", "REQ", "RLC", "STORJ", "TUSD", "USDT", "XEM", "XRP"}
+func (r Route) GetMuxNum(b map[string]Balance) []string {
+	//b[r.R1.Name].Free/
+}
+
+//var BaseCoins = []string{"BTC", "ETH", "USDT", "BNB"}
+var BaseCoins = []string{"BTC", "ETH", "USDT"}
+
+//exist pair with Coins
+var Pair = []string{"ETH/BTC", "NEO/BTC", "BTC/USDT", "ETH/USDT", "NEO/ETH", "ENG/BTC", "ENG/ETH", "XRP/BTC", "XRP/ETH", "STORJ/BTC", "STORJ/ETH", "NEO/USDT", "LEND/BTC", "LEND/ETH", "XEM/BTC", "XEM/ETH", "XRP/USDT"}
+
+// search Coins
+var Coins = []string{"BTC", "ENG", "ETH", "LEND", "NEO", "STORJ", "USDT", "XEM", "XRP"}
