@@ -29,7 +29,7 @@ func makePairMap() {
 	}
 }
 
-func GetBalance(c ...string) map[string]Balance {
+func GetBalance(c []string) map[string]Balance {
 	res := map[string]Balance{}
 	for _, v := range userData.Balances {
 		if contains(v.Name, c) {
@@ -41,6 +41,7 @@ func GetBalance(c ...string) map[string]Balance {
 
 func (r Route) GetMuxNum(b map[string]Balance) []string {
 	//b[r.R1.Name].Free/
+  return []string{}
 }
 
 //var BaseCoins = []string{"BTC", "ETH", "USDT", "BNB"}

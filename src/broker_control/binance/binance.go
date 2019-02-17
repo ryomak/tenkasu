@@ -71,7 +71,7 @@ func InitListenKey() {
 func SetAccount() {
 	//websocket
 	wsHandler := func(message []byte) {
-		if err := json.Unmarshal(bytes, &userData); err != nil {
+		if err := json.Unmarshal(message, &userData); err != nil {
 			log.Println(err)
 		}
 	}

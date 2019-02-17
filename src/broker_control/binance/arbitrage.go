@@ -32,10 +32,11 @@ func init() {
 }
 
 func (r Route) Start() {
+  firstAmount:= "0"
 	r1 := r.R1.Name
 	r2 := r.R2.Name
 	r3 := r.R3.Name
-	balance := GetBalance([]string{r1, r2, r3})
+	GetBalance([]string{r1, r2, r3})
 	if r.R1.Type == "buy" {
 		BuyMarketOrder(r2+r1, firstAmount)
 	} else {
@@ -155,6 +156,6 @@ func readRoute(path string) {
 			panic(err)
 		}
 		rs := strings.Split(string(line), ",")
-		routes = append(routes, Route{Order{Name: rs[0]}, Order{Name: rs[1]}, Order{Name: rs[2]}, 0.0})
+		routes = append(routes, Route{&Order{Name: rs[0]}, &Order{Name: rs[1]}, &Order{Name: rs[2]}, 0.0})
 	}
 }
